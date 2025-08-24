@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title | default: "Affiliate Guide" }}</title>
+  <meta name="description" content="{{ page.description | default: 'Expert picks, comparisons, and deals.' }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="canonical" href="https://{{ site.domain }}{{ page.url | default: '/' }}">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"{{ site.name | default: 'Expert Picks' }}",
+    "url":"https://{{ site.domain }}",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://{{ site.domain }}/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="container">
+    <h1>{{ page.h1 | default: page.title }}</h1>
+    <p class="subtitle">{{ page.subtitle }}</p>
+  </header>
+
+  <main class="container content">
+    {{ content }}
+    <section class="cta">
+      <a class="button" href="{{ page.cta_link }}" rel="nofollow sponsored noopener" target="_blank">
+        Check price on Amazon
+      </a>
+    </section>
+  </main>
+
+  <footer class="container foot">
+    <p>© {{ "now" | date: "%Y" }} {{ site.name | default: site.domain }}</p>
+  </footer>
+</body>
+</html>
